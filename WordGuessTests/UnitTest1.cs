@@ -7,9 +7,11 @@ namespace WordGuessTests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void FileShouldOpen()
         {
+            string path = "dictionary.txt";
 
+            Assert.Equal(true, OpenFile(path));
         }
     }
 }
