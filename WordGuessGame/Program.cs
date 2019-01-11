@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace WordGuessGame
 {
@@ -8,12 +9,16 @@ namespace WordGuessGame
         {
             string path = "dictionary.txt";
 
-            OpenFile(path);
+            ReadFile(path);
         }
 
-        static bool OpenFile(string path)
+        static bool ReadFile(string path)
         {
-            
+            string[] readText = File.ReadAllLines(path);
+
+            if (readText.Length > 0) return true;
+
+            return false;
         }
     }
 }

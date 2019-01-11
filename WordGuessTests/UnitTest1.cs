@@ -11,7 +11,7 @@ namespace WordGuessTests
         {
             string path = "dictionary.txt";
 
-            Assert.Equal(true, OpenFile(path));
+            Assert.Equal(true, ReadFile(path));
         }
     }
 }
