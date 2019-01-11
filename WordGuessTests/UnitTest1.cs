@@ -7,11 +7,13 @@ namespace WordGuessTests
     public class UnitTest1
     {
         [Fact]
-        public void FileShouldOpen()
+        public void EditedWordsShouldBeUpdatedInFile()
         {
             string path = "dictionary.txt";
+            string word = "yoke";
+            string editedWord = "yokes";
 
-            Assert.Equal(true, ReadFile(path));
+            Assert.Equal(editedWord, Program.UpdateFile(path, word));
         }
     }
 }
