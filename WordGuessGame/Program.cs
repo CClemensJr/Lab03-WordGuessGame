@@ -6,7 +6,14 @@ namespace WordGuessGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string path = "dictionary.txt";
+
+            OpenFile(path);
+        }
+
+        static bool OpenFile(string path)
+        {
+            
         }
     }
 }
