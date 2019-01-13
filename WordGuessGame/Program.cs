@@ -171,6 +171,11 @@ namespace WordGuessGame
          * GAMEPLAY METHODS
          **/
 
+        /// <summary>
+        /// This method takes a file path and sends it to ReadWordBank to fill up a newly created string array with the contents of the file. Then a Random object is instantiated and a random index created using the Next method of the Random class and the length of the array. A random word variable is created and set to the value of the array at the random index. The method then returns the random word.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>A random word.</returns>
         static string GetRandomWord(string path)
         {
             try
