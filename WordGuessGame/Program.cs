@@ -43,7 +43,7 @@ namespace WordGuessGame
         }
 
         /// <summary>
-        /// This method takes a path to a atext file, an array of words, and a new word to add to the array. Using the StreamWriter class it, the method iterates over the array and WriteLines it into the file. The method then calls the ReadWordBank method which returns an array of words from the updated file.
+        /// This method takes a path to a text file, an array of words, and a new word to add to the array. The method creates a new array of a size equal to the original array plus the new word and uses a for loop to iterate over the new array and assign it the values of the old one. When at the last element of the array, the new word is inserted. The WriteAllLines method of the File class is then used to write the content of the new array into the file. The method then calls the ReadWordBank method which returns an array of words from the updated file.
         /// </summary>
         /// <param name="path"></param>
         /// <param name="newWord"></param>
@@ -80,6 +80,14 @@ namespace WordGuessGame
             return null;
         }
 
+        /// <summary>
+        /// This method takes a path to a text file, an array of words, an old word that will be edited, and a new word that is the edited version of the original (old) word. The method creates a new array of a size equal to the original array uses a for loop to iterate over the new array and assign the values of the old one. When an index contains the value of the old word, then new word is inserted in it's stead and the iteration continues. The WriteAllLines method of the File class is then used to write the content of the new array into the file. The method then calls the ReadWordBank method which returns an array of words from the updated file.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="oldWord"></param>
+        /// <param name="newWord"></param>
+        /// <param name="words"></param>
+        /// <returns></returns>
         public static string[] EditWord(string path, string oldWord, string newWord, string[] words)
         {
             try
