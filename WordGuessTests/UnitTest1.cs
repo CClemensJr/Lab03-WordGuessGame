@@ -7,31 +7,31 @@ namespace WordGuessTests
     public class UnitTest1
     {
         [Fact]
-        public void ShouldBeAbleToEditWordsInFile()
+        public void ShouldEditWordsInFile()
         {
             string path = "dictionary.txt";
             string word = "yoke";
             string editedWord = "yokes";
 
-            Assert.Equal(editedWord, Program.EditFile(path, word));
+            Assert.Equal(editedWord, Program.UpdateWordBank(path, word));
         }
 
         [Fact]
-        public void ShouldBeAbleToAddWordsToFile()
+        public void ShouldAddWordsToFile()
         {
             string path = "dictionary.txt";
             string newWord = "pokes";
 
-            Assert.Equal(newWord, Program.AddToFile(path, newWord));
+            Assert.Equal(newWord, Program.AddToWordBank(path, newWord));
         }
 
         [Fact]
-        public void ShouldBeAbleToReadWordsFromFile()
+        public void ShouldReadWordsFromFile()
         {
             string path = "dictionary.txt";
             string firstWordInFile = "yoke";
 
-            Assert.Equal(firstWordInFile, Program.ReadFile(path, firstWordInFile));
+            Assert.Equal(firstWordInFile, Program.ReadWordBank(path));
         }
 
         [Fact]
