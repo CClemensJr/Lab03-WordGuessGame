@@ -7,7 +7,9 @@ namespace WordGuessGame
     {
         static void Main(string[] args)
         {
-            
+            string path = "../../../wordbank.txt";
+
+            ReadWordBank(path);
         }
 
 
