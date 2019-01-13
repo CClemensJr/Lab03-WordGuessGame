@@ -80,15 +80,15 @@ namespace WordGuessGame
             return null;
         }
 
-        public static string[] EditWord(string path, string editedWord, string[] words)
+        public static string[] EditWord(string path, string oldWord, string newWord, string[] words)
         {
             try
             {
-                string[] updatedWords = new string[(words.Length + 1)];
+                string[] updatedWords = new string[(words.Length)];
 
                 for (int i = 0; i < updatedWords.Length; i++)
                 {
-                    if (i == (updatedWords.Length - 1))
+                    if (words[i].Contains(oldWord))
                     {
                         updatedWords[i] = newWord;
                     }

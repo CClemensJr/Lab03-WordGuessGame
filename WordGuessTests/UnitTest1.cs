@@ -18,11 +18,13 @@ namespace WordGuessTests
         [Fact]
         public void ShouldEditWordsInFile()
         {
-            string path = "dictionary.txt";
-            string word = "yoke";
-            string editedWord = "yokes";
+            string testPath = "../../../../test.txt";
+            string oldWord = "testy";
+            string newWord = "whoopsie!";
+            string[] testArray = { "test", "test", "testy" };
+            string[] newTestArray = { "test", "test", "whoopsie!" };
 
-            Assert.Equal(editedWord, Program.EditWord(path, word));
+            Assert.Equal(newTestArray, Program.EditWord(testPath, oldWord, newWord, testArray)); ;
         }
 
         [Fact]
