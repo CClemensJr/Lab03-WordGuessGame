@@ -9,10 +9,10 @@ namespace WordGuessTests
         [Fact]
         public void ShouldReadWordsFromFile()
         {
-            string path = "../../../../wordbank.txt";
-            string fileReadConfirmation = "The file has been read.";
+            string path = "../../../../test.txt";
+            string[] testWords = { "test", "test", "test" };
 
-            Assert.Equal(fileReadConfirmation, Program.ReadWordBank(path));
+            Assert.Equal(testWords, Program.ReadWordBank(path));
         }
 
         //[Fact]
