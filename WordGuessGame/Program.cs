@@ -11,11 +11,7 @@ namespace WordGuessGame
 
             //ShowWordBank(path);
 
-            string rand1 = GetRandomWord(path);
-            string rand2 = GetRandomWord(path);
-            string rand3 = GetRandomWord(path);
-
-            Console.WriteLine($"HERE ARE YOUR RANDOM WORDS: { rand1 }, { rand2 }, and { rand3 }");
+            ShowMysteryWord(path);
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -216,6 +212,23 @@ namespace WordGuessGame
             {
                 Console.WriteLine(word);
             }
+        }
+
+        static void ShowMysteryWord(string path)
+        {
+            string mysteryWord = GetRandomWord(path);
+
+            char[] mysteryWordLetters = new char[mysteryWord.Length];
+
+            for (int i = 0; i < mysteryWordLetters.Length; i++)
+            {
+                mysteryWordLetters[i] = '_';
+
+                Console.Write($" { mysteryWordLetters[i] } ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"The word is { mysteryWord }");
         }
     }
 
