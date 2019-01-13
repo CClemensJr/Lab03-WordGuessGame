@@ -9,7 +9,13 @@ namespace WordGuessGame
         {
             string path = "../../../../wordbank.txt";
 
-            ShowWordBank(path);
+            //ShowWordBank(path);
+
+            string rand1 = GetRandomWord(path);
+            string rand2 = GetRandomWord(path);
+            string rand3 = GetRandomWord(path);
+
+            Console.WriteLine($"HERE ARE YOUR RANDOM WORDS: { rand1 }, { rand2 }, and { rand3 }");
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -170,6 +176,14 @@ namespace WordGuessGame
             try
             {
                 string[] wordBank = ReadWordBank(path);
+
+                Random random = new Random();
+                int index = random.Next(wordBank.Length);
+
+                string randomWord = wordBank[index];
+
+                return randomWord;
+
             }
             catch (Exception error)
             {
