@@ -47,6 +47,10 @@ namespace WordGuessGame
         /**
          * INTERFACE METHODS
          **/
+
+        /// <summary>
+        /// ReadWordBank takes a path to text file and then sends it to ReadWordBank. ReadWordBank returns an array that is assigned to a words array and then the words are rendered in the console
+        /// </summary>
         static void ShowWordBank(string path)
         {
             string[] words = ReadWordBank(path);
