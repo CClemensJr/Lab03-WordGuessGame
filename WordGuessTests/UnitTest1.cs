@@ -25,14 +25,16 @@ namespace WordGuessTests
         //    Assert.Equal(editedWord, Program.UpdateWordBank(path, word));
         //}
 
-        //[Fact]
-        //public void ShouldAddWordsToFile()
-        //{
-        //    string path = "dictionary.txt";
-        //    string newWord = "pokes";
+        [Fact]
+        public void ShouldAddWordsToFile()
+        {
+            string testPath = "../../../../test.txt";
+            string testWord = "test";
+            string[] testArray = { "test", "test", "test" };
+            string[] newTestArray = { "test", "test", "test", "test" };
 
-        //    Assert.Equal(newWord, Program.AddToWordBank(path, newWord));
-        //}
+            Assert.Equal(newTestArray, Program.AddWordToWordBank(testPath, testWord, testArray));
+        }
 
         //[Fact]
         //public void ShouldDetectIfGuessInWord()

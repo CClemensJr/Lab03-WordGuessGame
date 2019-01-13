@@ -42,6 +42,39 @@ namespace WordGuessGame
             return null;
         }
 
+        /// <summary>
+        /// This method takes a path to a atext file, an array of words, and a new word to add to the array. Using the StreamWriter class it, the method iterates over the array and WriteLines it into the file. The method then calls the ReadWordBank method which returns an array of words from the updated file.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="newWord"></param>
+        /// <param name="words"></param>
+        /// <returns>An array of words</returns>
+        public static string[] AddWordToWordBank(string path, string newWord, string[] words)
+        {
+            try
+            {
+                using (StreamWriter write = new StreamWriter(path))
+                {
+                    foreach ( string word in words)
+                    {
+                        write.WriteLine(word);
+                    }
+
+                    write.WriteLine(newWord);
+                }
+
+                return ReadWordBank(path);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("The word could not be added:");
+                Console.WriteLine(error.Message);
+            }
+
+            return null;
+        }
+
+
 
 
         /**
