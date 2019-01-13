@@ -15,15 +15,15 @@ namespace WordGuessTests
             Assert.Equal(testWords, Program.ReadWordBank(path));
         }
 
-        //[Fact]
-        //public void ShouldEditWordsInFile()
-        //{
-        //    string path = "dictionary.txt";
-        //    string word = "yoke";
-        //    string editedWord = "yokes";
+        [Fact]
+        public void ShouldEditWordsInFile()
+        {
+            string path = "dictionary.txt";
+            string word = "yoke";
+            string editedWord = "yokes";
 
-        //    Assert.Equal(editedWord, Program.UpdateWordBank(path, word));
-        //}
+            Assert.Equal(editedWord, Program.EditWord(path, word));
+        }
 
         [Fact]
         public void ShouldAddWordsToFile()
@@ -33,7 +33,7 @@ namespace WordGuessTests
             string[] testArray = { "test", "test", "test" };
             string[] newTestArray = { "test", "test", "test", "test" };
 
-            Assert.Equal(newTestArray, Program.AddWordToWordBank(testPath, testWord, testArray));
+            Assert.Equal(newTestArray, Program.AddWord(testPath, testWord, testArray));
         }
 
         //[Fact]

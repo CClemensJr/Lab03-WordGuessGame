@@ -49,25 +49,25 @@ namespace WordGuessGame
         /// <param name="newWord"></param>
         /// <param name="words"></param>
         /// <returns>An array of words</returns>
-        public static string[] AddWordToWordBank(string path, string newWord, string[] words)
+        public static string[] AddWord(string path, string newWord, string[] words)
         {
             try
             {
-                string[] updatedArray = new string[(words.Length + 1)];
+                string[] updatedWords = new string[(words.Length + 1)];
 
-                for (int i = 0; i < updatedArray.Length; i++)
+                for (int i = 0; i < updatedWords.Length; i++)
                 {
-                    if (i == (updatedArray.Length - 1))
+                    if (i == (updatedWords.Length - 1))
                     {
-                        updatedArray[i] = newWord;
+                        updatedWords[i] = newWord;
                     }
                     else
                     {
-                        updatedArray[i] = words[i];
+                        updatedWords[i] = words[i];
                     }
                 }
 
-                File.WriteAllLines(path, updatedArray);
+                File.WriteAllLines(path, updatedWords);
 
                 return ReadWordBank(path);
             }
@@ -80,7 +80,36 @@ namespace WordGuessGame
             return null;
         }
 
+        public static string[] EditWord(string path, string editedWord, string[] words)
+        {
+            try
+            {
+                string[] updatedWords = new string[(words.Length + 1)];
 
+                for (int i = 0; i < updatedWords.Length; i++)
+                {
+                    if (i == (updatedWords.Length - 1))
+                    {
+                        updatedWords[i] = newWord;
+                    }
+                    else
+                    {
+                        updatedWords[i] = words[i];
+                    }
+                }
+
+                File.WriteAllLines(path, updatedWords);
+
+                return ReadWordBank(path);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("The word could not be added:");
+                Console.WriteLine(error.Message);
+            }
+
+            return null;
+        }
 
 
         /**
@@ -103,7 +132,7 @@ namespace WordGuessGame
 
             string newWord = "fragile";
 
-            words = AddWordToWordBank(path, newWord, words);
+            words = AddWord(path, newWord, words);
 
             foreach (string word in words)
             {
