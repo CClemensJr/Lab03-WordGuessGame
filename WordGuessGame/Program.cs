@@ -9,18 +9,19 @@ namespace WordGuessGame
         {
             string path = "../../../../wordbank.txt";
 
-            string message = ReadWordBank(path);
+            ReadWordBank(path);
 
-            Console.WriteLine(message);
+            Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
         }
+
 
         /// <summary>
         /// ReadWordBank takes a path to text file and then opens (and closes) it using StreamReader class in the Stream.IO namespace. The method reads through a word in the file and outputs it to the screen before moving on to the next word. This repeats until there are no more words to display. If the file cannot be opened, an error message is sent to the user.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        static string ReadWordBank (string path)
+        public static string ReadWordBank (string path)
         {
             try
             {
@@ -40,7 +41,7 @@ namespace WordGuessGame
                 Console.WriteLine(error.Message);
             }
 
-            return "\n\nPress any key to exit...";
+            return "The file has been read.";
         }
     }
 
