@@ -48,7 +48,7 @@ namespace WordGuessGame
         /// <param name="path"></param>
         /// <param name="newWord"></param>
         /// <param name="words"></param>
-        /// <returns>An array of words</returns>
+        /// <returns>An array of words including the added word</returns>
         public static string[] AddWord(string path, string newWord, string[] words)
         {
             try
@@ -87,7 +87,7 @@ namespace WordGuessGame
         /// <param name="oldWord"></param>
         /// <param name="newWord"></param>
         /// <param name="words"></param>
-        /// <returns></returns>
+        /// <returns>An array of words including the edited word</returns>
         public static string[] EditWord(string path, string oldWord, string newWord, string[] words)
         {
             try
@@ -119,6 +119,13 @@ namespace WordGuessGame
             return null;
         }
 
+        /// <summary>
+        /// This method takes a path, an array of words, and a word to be deleted. A new array is created that is equal to the length of the original array minus one, since a word needs to be deleted. A for loop is used to iterate over the new array while assigning values from the original array to it. When the value at i index of the original array is equal to the word to be deleted, the next value in the original array is assigned and the iterator is updated twice. File.WriteAllLines is used to write the contents of the new array to the file and then the contents of the file are returned when ReadWordBank is called.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="deleteWord"></param>
+        /// <param name="words"></param>
+        /// <returns>An array of words minus the deleted word</returns>
         public static string[] DeleteWord(string path, string deleteWord, string[] words)
         {
             try
