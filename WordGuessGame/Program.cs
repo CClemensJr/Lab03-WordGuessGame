@@ -98,6 +98,17 @@ namespace WordGuessGame
             {
                 Console.WriteLine(word);
             }
+
+            Console.WriteLine("-------------------------------------------------------------------------------------------");
+
+            string newWord = "fragile";
+
+            words = AddWordToWordBank(path, newWord, words);
+
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
         }
     }
 
