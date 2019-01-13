@@ -162,6 +162,27 @@ namespace WordGuessGame
 
 
         /**
+         * GAMEPLAY METHODS
+         **/
+
+        static string GetRandomWord(string path)
+        {
+            try
+            {
+                string[] wordBank = ReadWordBank(path);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("The word could not be retrieved: ");
+                Console.WriteLine(error.Message);
+            }
+
+            return null;
+        }
+         
+
+
+        /**
          * INTERFACE METHODS
          **/
 
@@ -171,41 +192,6 @@ namespace WordGuessGame
         static void ShowWordBank(string path)
         {
             string[] words = ReadWordBank(path);
-
-            foreach (string word in words)
-            {
-                Console.WriteLine(word);
-            }
-
-            Console.WriteLine("-------------------------------------------------------------------------------------------");
-
-            string newWord = "fragile";
-
-            words = AddWord(path, newWord, words);
-
-            foreach (string word in words)
-            {
-                Console.WriteLine(word);
-            }
-
-
-            Console.WriteLine("-------------------------------------------------------------------------------------------");
-
-            string oldWord = "fragile";
-            newWord = "fragilous";
-
-            words = EditWord(path, oldWord, newWord, words);
-
-            foreach (string word in words)
-            {
-                Console.WriteLine(word);
-            }
-
-
-            Console.WriteLine("-------------------------------------------------------------------------------------------");
-
-
-            words = DeleteWord(path, newWord, words);
 
             foreach (string word in words)
             {
