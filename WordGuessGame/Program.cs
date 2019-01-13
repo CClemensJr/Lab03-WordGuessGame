@@ -202,7 +202,7 @@ namespace WordGuessGame
          **/
 
         /// <summary>
-        /// ReadWordBank takes a path to text file and then sends it to ReadWordBank. ReadWordBank returns an array that is assigned to a words array and then the words are rendered in the console
+        /// ShowWordBank takes a path to text file and then sends it to ReadWordBank. ReadWordBank returns an array that is assigned to a words array and then the words are rendered in the console
         /// </summary>
         static void ShowWordBank(string path)
         {
@@ -214,6 +214,10 @@ namespace WordGuessGame
             }
         }
 
+        /// <summary>
+        /// This method takes a path and sends it to get a random word. It then creates an array of the same length as the random word and uses iteration to fill up the empty spaces with underscores and display them on the screen
+        /// </summary>
+        /// <param name="path"></param>
         static void ShowMysteryWord(string path)
         {
             string mysteryWord = GetRandomWord(path);
