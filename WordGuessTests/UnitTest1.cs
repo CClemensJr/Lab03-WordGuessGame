@@ -38,6 +38,17 @@ namespace WordGuessTests
             Assert.Equal(newTestArray, Program.AddWord(testPath, testWord, testArray));
         }
 
+        [Fact]
+        public void ShouldDeleteWordsFromFile()
+        {
+            string testPath = "../../../../test.txt";
+            string testWord = "testy";
+            string[] testArray = { "test", "testy", "test" };
+            string[] newTestArray = { "test", "test" };
+
+            Assert.Equal(newTestArray, Program.DeleteWord(testPath, testWord, testArray));
+        }
+
         //[Fact]
         //public void ShouldDetectIfGuessInWord()
         //{

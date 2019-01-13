@@ -119,6 +119,40 @@ namespace WordGuessGame
             return null;
         }
 
+        public static string[] DeleteWord(string path, string deleteWord, string[] words)
+        {
+            try
+            {
+                string[] updatedWords = new string[(words.Length - 1)];
+
+                for (int i = 0; i < updatedWords.Length; i++)
+                {
+                    if (words[i].Contains(deleteWord))
+                    {
+                        updatedWords[i] = words[i + 1];
+
+                        i++;
+                    }
+                    else
+                    {
+                        updatedWords[i] = words[i];
+                    }
+                }
+
+                File.WriteAllLines(path, updatedWords);
+
+                return ReadWordBank(path);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("The word could not be added:");
+                Console.WriteLine(error.Message);
+            }
+
+            return null;
+        }
+
+
 
         /**
          * INTERFACE METHODS
@@ -141,6 +175,30 @@ namespace WordGuessGame
             string newWord = "fragile";
 
             words = AddWord(path, newWord, words);
+
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+
+
+            Console.WriteLine("-------------------------------------------------------------------------------------------");
+
+            string oldWord = "fragile";
+            newWord = "fragilous";
+
+            words = EditWord(path, oldWord, newWord, words);
+
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+
+
+            Console.WriteLine("-------------------------------------------------------------------------------------------");
+
+
+            words = DeleteWord(path, newWord, words);
 
             foreach (string word in words)
             {
