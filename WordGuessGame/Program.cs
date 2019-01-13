@@ -53,15 +53,21 @@ namespace WordGuessGame
         {
             try
             {
-                using (StreamWriter write = new StreamWriter(path))
-                {
-                    foreach ( string word in words)
-                    {
-                        write.WriteLine(word);
-                    }
+                string[] updatedArray = new string[(words.Length + 1)];
 
-                    write.WriteLine(newWord);
+                for (int i = 0; i < updatedArray.Length; i++)
+                {
+                    if (i == (updatedArray.Length - 1))
+                    {
+                        updatedArray[i] = newWord;
+                    }
+                    else
+                    {
+                        updatedArray[i] = words[i];
+                    }
                 }
+
+                File.WriteAllLines(path, updatedArray);
 
                 return ReadWordBank(path);
             }
