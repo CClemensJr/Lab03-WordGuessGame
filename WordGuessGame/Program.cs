@@ -9,9 +9,10 @@ namespace WordGuessGame
         {
             string path = "../../../../wordbank.txt";
 
-            //ShowWordBank(path);
-
+            ShowWordBank(path);
             ShowMysteryWord(path);
+            char guess = GetGuess();
+            Console.WriteLine($"Your guess was: { guess }");
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -195,7 +196,31 @@ namespace WordGuessGame
             return null;
         }
          
+        static char GetGuess()
+        {
+            try
+            {
+                Console.Write("\n\nWhat letter do you think is in the word?  ");
 
+                string guess = Console.ReadLine();
+                Console.ReadLine();
+
+                if (int.Parse(guess) is Int32)
+                {
+                    Console.WriteLine("\n\nPlease enter a letter. Numbers are invalid");
+                }
+
+                return Convert.ToChar(guess);
+                
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("I am sorry but I was unable to collect your input:");
+                Console.WriteLine(error.Message);
+            }
+
+            return '_';
+        }
 
         /**
          * INTERFACE METHODS
@@ -230,9 +255,6 @@ namespace WordGuessGame
 
                 Console.Write($" { mysteryWordLetters[i] } ");
             }
-
-            Console.WriteLine();
-            Console.WriteLine($"The word is { mysteryWord }");
         }
     }
 
