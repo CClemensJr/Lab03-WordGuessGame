@@ -1,0 +1,11 @@
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\bin\Debug\netcoreapp2.1\WordGuessGame.deps.json
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\bin\Debug\netcoreapp2.1\WordGuessGame.runtimeconfig.json
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\bin\Debug\netcoreapp2.1\WordGuessGame.runtimeconfig.dev.json
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\bin\Debug\netcoreapp2.1\WordGuessGame.dll
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\bin\Debug\netcoreapp2.1\WordGuessGame.pdb
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.csproj.CoreCompileInputs.cache
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.AssemblyInfoInputs.cache
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.AssemblyInfo.cs
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.dll
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.pdb
+F:\Projects\401\Lab03-WordGuessGame\WordGuessGame\obj\Debug\netcoreapp2.1\WordGuessGame.csprojAssemblyReference.cache
