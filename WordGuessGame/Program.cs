@@ -9,10 +9,8 @@ namespace WordGuessGame
         {
             string path = "../../../../wordbank.txt";
 
-            ShowWordBank(path);
+            //ShowWordBank(path);
             ShowMysteryWord(path);
-            char guess = GetGuess();
-            Console.WriteLine($"Your guess was: { guess }");
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -203,7 +201,6 @@ namespace WordGuessGame
                 Console.Write("\n\nWhat letter do you think is in the word?  ");
 
                 string guess = Console.ReadLine();
-                Console.ReadLine();
 
                 return Convert.ToChar(guess);
                 
@@ -219,6 +216,8 @@ namespace WordGuessGame
 
         static bool CheckGuess(char guess, string mysterWord)
         {
+            if (mysterWord.Contains(guess)) return true;
+
             return false;
         }
 
@@ -257,7 +256,6 @@ namespace WordGuessGame
             }
 
             char guess = GetGuess();
-
             bool isCorrect = CheckGuess(guess, mysteryWord);
         }
     }
