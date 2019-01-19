@@ -205,11 +205,6 @@ namespace WordGuessGame
                 string guess = Console.ReadLine();
                 Console.ReadLine();
 
-                if (int.Parse(guess) is Int32)
-                {
-                    Console.WriteLine("\n\nPlease enter a letter. Numbers are invalid");
-                }
-
                 return Convert.ToChar(guess);
                 
             }
@@ -220,6 +215,11 @@ namespace WordGuessGame
             }
 
             return '_';
+        }
+
+        static bool CheckGuess(char guess, string mysterWord)
+        {
+            return false;
         }
 
         /**
@@ -255,6 +255,10 @@ namespace WordGuessGame
 
                 Console.Write($" { mysteryWordLetters[i] } ");
             }
+
+            char guess = GetGuess();
+
+            bool isCorrect = CheckGuess(guess, mysteryWord);
         }
     }
 
