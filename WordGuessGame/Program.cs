@@ -214,7 +214,7 @@ namespace WordGuessGame
             return '_';
         }
 
-        static bool CheckGuess(char guess, string mysterWord)
+        public static bool CheckGuess(char guess, string mysterWord)
         {
             if (mysterWord.Contains(guess)) return true;
 
@@ -257,6 +257,8 @@ namespace WordGuessGame
 
             char guess = GetGuess();
             bool isCorrect = CheckGuess(guess, mysteryWord);
+
+
         }
     }
 
