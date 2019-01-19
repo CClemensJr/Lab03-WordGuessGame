@@ -59,13 +59,14 @@ namespace WordGuessTests
             Assert.True(isCorrect);
         }
 
-        //[Fact]
-        //public void ShouldDetectIfGuessNotInWord()
-        //{
-        //    string word = "yoke";
-        //    string guess = "o";
+        [Fact]
+        public void ShouldDetectIfGuessNotInWord()
+        {
+            string word = "yoke";
+            char guess = 'i';
+            bool isCorrect = Program.CheckGuess(guess, word);
 
-        //    Assert.Equal("Not in word", Program.CheckGuess(word, guess));
-        //}
+            Assert.False(isCorrect);
+        }
     }
 }
