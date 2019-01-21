@@ -269,13 +269,19 @@ namespace WordGuessGame
             }
             Console.WriteLine("\n\nGuesses: ");
 
-            //Console.Write("Guess a letter in the word: ");
             char guess;
+            bool isCorrect;
             
             while (!string.Equals(mysteryWord, displayWord.ToString()))
             {
                 Console.Write("\n\nGuess a letter in the word: ");
                 guess = GetGuess();
+                isCorrect = CheckGuess(guess, mysteryWord);
+
+                if (!isCorrect)
+                {
+                    guesses += guess;
+                }
 
                 for (int j = 0; j < displayWord.Length; j++)
                 {
@@ -288,6 +294,8 @@ namespace WordGuessGame
 
                     Console.Write(displayWord[j]);
                 }
+
+                Console.WriteLine($"\n\nGuesses: { guesses }");
 
                 if (lettersInWord == 0)
                 {
