@@ -9,8 +9,20 @@ namespace WordGuessGame
         {
             string path = "../../../../wordbank.txt";
 
-            //ShowWordBank(path);
+            ShowWordBank(path);
+            //string mysteryWord = GetRandomWord(path);
             ShowMysteryWord(path);
+            //char guess = GetGuess();
+            //bool isCorrect = CheckGuess(guess, mysteryWord);
+            //Console.WriteLine($"Your guess was: { guess }");
+
+            //char[] mystArray = mysteryWord.ToCharArray();
+
+            //for (int i = 0; i < mystArray.Length; i++)
+            //{
+            //    if (mystArray[i] == guess) 
+            //}
+
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -245,22 +257,67 @@ namespace WordGuessGame
         static void ShowMysteryWord(string path)
         {
             string mysteryWord = GetRandomWord(path);
+            int lettersInWord = mysteryWord.Length;
+            //char[] mysteryArr = mysteryWord.ToCharArray();
+            string [] displayWord = new string[mysteryWord.Length];
+            string guesses = "";
 
-            char[] mysteryWordLetters = new char[mysteryWord.Length];
-
-            for (int i = 0; i < mysteryWordLetters.Length; i++)
+            for (int i = 0; i < displayWord.Length; i++)
             {
-                mysteryWordLetters[i] = '_';
+                displayWord[i] = " _ ";
+                Console.Write(displayWord[i]);
+            }
+            Console.WriteLine("\n\nGuesses: ");
 
-                Console.Write($" { mysteryWordLetters[i] } ");
+            //Console.Write("Guess a letter in the word: ");
+            char guess;
+            
+            while (!string.Equals(mysteryWord, displayWord.ToString()))
+            {
+                Console.Write("\n\nGuess a letter in the word: ");
+                guess = GetGuess();
+
+                for (int j = 0; j < displayWord.Length; j++)
+                {
+                    if (mysteryWord[j] == guess)
+                    {
+                        displayWord[j] = $"{ guess }";
+
+                        lettersInWord--;
+                    }
+
+                    Console.Write(displayWord[j]);
+                }
+
+                if (lettersInWord == 0)
+                {
+                    Console.WriteLine($"\n\nYou correctly guessed { string.Join("", displayWord)}!");
+                    Console.WriteLine("Congratulations!");
+
+                    return;
+                }
             }
 
-            char guess = GetGuess();
-            bool isCorrect = CheckGuess(guess, mysteryWord);
+            //bool isCorrectGuess = CheckGuess(guess, mysteryWord);
 
+            
+            //int matches = mysteryArr.Length;
 
+            //for (int maxGuesses = 25; maxGuesses > 0; maxGuesses--)
+            //{
+            //    for (int i = 0; i < displayWord.Length; i++)
+            //    { 
+            //        if (mysteryArr[i] == guess)
+            //        {
+            //            displayWord[i] = guess;
+            //        }
+
+            //        Console.Write(displayWord[i]);
+            //    }
+
+            //    Console.WriteLine(guesses);
+            
         }
     }
-
-
 }
+
