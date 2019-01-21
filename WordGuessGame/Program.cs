@@ -7,22 +7,12 @@ namespace WordGuessGame
     {
         static void Main(string[] args)
         {
-            string path = "../../../../wordbank.txt";
+            //string path = "../../../../wordbank.txt";
 
-            ShowWordBank(path);
-            //string mysteryWord = GetRandomWord(path);
-            ShowMysteryWord(path);
-            //char guess = GetGuess();
-            //bool isCorrect = CheckGuess(guess, mysteryWord);
-            //Console.WriteLine($"Your guess was: { guess }");
+            //ShowWordBank(path);
+            //ShowMysteryWord(path);
 
-            //char[] mystArray = mysteryWord.ToCharArray();
-
-            //for (int i = 0; i < mystArray.Length; i++)
-            //{
-            //    if (mystArray[i] == guess) 
-            //}
-
+            ShowMenu();
 
             Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadLine();
@@ -206,6 +196,10 @@ namespace WordGuessGame
             return null;
         }
          
+        /// <summary>
+        /// This method takes the user's input and converts it to char.
+        /// </summary>
+        /// <returns>A character</returns>
         static char GetGuess()
         {
             try
@@ -226,6 +220,12 @@ namespace WordGuessGame
             return '_';
         }
 
+        /// <summary>
+        /// This method takes in the word and a guess and returns true or false depending on if the word contains the guess.
+        /// </summary>
+        /// <param name="guess"></param>
+        /// <param name="mysterWord"></param>
+        /// <returns>True if the guess is correct, false if it isn't.</returns>
         public static bool CheckGuess(char guess, string mysterWord)
         {
             if (mysterWord.Contains(guess)) return true;
@@ -238,15 +238,81 @@ namespace WordGuessGame
          **/
 
         /// <summary>
-        /// ShowWordBank takes a path to text file and then sends it to ReadWordBank. ReadWordBank returns an array that is assigned to a words array and then the words are rendered in the console
+        /// ShowWordBank takes a path to text file and then sends it to ReadWordBank. ReadWordBank returns an array that is assigned to a words array and then the words are rendered in the console. The user is able to add, edit, or delete words
         /// </summary>
         static void ShowWordBank(string path)
         {
+            Console.Clear();
+
             string[] words = ReadWordBank(path);
 
             foreach (string word in words)
             {
                 Console.WriteLine(word);
+            }
+
+            string userInput = "";
+
+            while (userInput.ToUpper() != "X")
+            {
+                Console.Write("What would you like to do?  \t");
+                Console.Write("(A)dd a word \t");
+                Console.Write("(E)dit a word \t");
+                Console.Write("(D)elete a word \t");
+                Console.WriteLine("E(x)it");
+
+                userInput = Console.ReadLine();
+
+                switch (userInput.ToUpper())
+                {
+
+                    case "A":
+                        Console.Write("\n\nWhat word would you like to add? ");
+                        string addWord = Console.ReadLine();
+                        string[] addWords = ReadWordBank(path);
+
+                        AddWord(path, addWord, addWords);
+
+                        ShowWordBank(path);
+
+                        break;
+
+                    case "E":
+                        Console.Write("\n\nWhat word would you like to edit? ");
+                        string oldWord = Console.ReadLine();
+
+                        Console.Write("\n\nWhat would you like to change it to? ");
+                        string newWord = Console.ReadLine();
+
+                        string[] editWords = ReadWordBank(path);
+
+                        EditWord(path, oldWord, newWord, editWords);
+
+                        ShowWordBank(path);
+
+                        break;
+
+                    case "D":
+                        Console.Write("\n\nWhat word would you like to delete? ");
+                        string deleteWord = Console.ReadLine();
+                        string[] deleteWords = ReadWordBank(path);
+
+                        DeleteWord(path, deleteWord, deleteWords);
+
+                        ShowWordBank(path);
+
+                        break;
+
+                    case "X":
+                        ShowMenu();
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Please enter a valid menu option");
+
+                        break;
+                }
             }
         }
 
@@ -256,9 +322,9 @@ namespace WordGuessGame
         /// <param name="path"></param>
         static void ShowMysteryWord(string path)
         {
+            Console.Clear();
             string mysteryWord = GetRandomWord(path);
             int lettersInWord = mysteryWord.Length;
-            //char[] mysteryArr = mysteryWord.ToCharArray();
             string [] displayWord = new string[mysteryWord.Length];
             string guesses = "";
 
@@ -305,26 +371,57 @@ namespace WordGuessGame
                     return;
                 }
             }
+        }
 
-            //bool isCorrectGuess = CheckGuess(guess, mysteryWord);
+        /// <summary>
+        /// Show menu shows the menu in console and keep the app open until the user decides to exit.
+        /// </summary>
+        static void ShowMenu()
+        {
+            try
+            {
+                string path = "../../../../wordbank.txt";
+                string userInput = "";
 
-            
-            //int matches = mysteryArr.Length;
+                while (userInput != "3")
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n 1. Play the Word Guess Game");
+                    Console.WriteLine("\n 2. View the word bank");
+                    Console.WriteLine("\n 3. Exit\n\n");
 
-            //for (int maxGuesses = 25; maxGuesses > 0; maxGuesses--)
-            //{
-            //    for (int i = 0; i < displayWord.Length; i++)
-            //    { 
-            //        if (mysteryArr[i] == guess)
-            //        {
-            //            displayWord[i] = guess;
-            //        }
+                    Console.Write("What would you like to do?  ");
 
-            //        Console.Write(displayWord[i]);
-            //    }
+                    userInput = Console.ReadLine();
 
-            //    Console.WriteLine(guesses);
-            
+                    switch (int.Parse(userInput))
+                    {
+                        case 1:
+                            ShowMysteryWord(path);
+
+                            break;
+
+                        case 2:
+                            ShowWordBank(path);
+
+                            break;
+
+                        case 3:
+                            return;
+
+                        default:
+                            Console.WriteLine("Please enter a valid menu option");
+
+                            break;
+                    }
+                }
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Your input may have been invalid:");
+                Console.WriteLine(error.Message);
+            }
         }
     }
 }
